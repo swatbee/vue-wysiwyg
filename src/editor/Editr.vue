@@ -34,6 +34,8 @@ import code from './modules/code.js'
 import list_ordered from './modules/list_ordered.js'
 import list_unordered from './modules/list_unordered.js'
 
+import embed from './modules/embed.vue'
+
 import image from './modules/image.vue'
 import table from './modules/table.vue'
 
@@ -59,7 +61,8 @@ const modules = [
     image,
     table,
     separator,
-    removeFormat
+    removeFormat,
+    embed
 ]
 
 export default {
@@ -173,8 +176,7 @@ export default {
                 this.restoreSelection(this.selection)
             document.execCommand(cmd, false, arg || '')
             this.clearSelection()
-
-            this.$nextTick(this.emit)
+        this.$nextTick(this.emit)
         },
 
         onDocumentClick(e) {
